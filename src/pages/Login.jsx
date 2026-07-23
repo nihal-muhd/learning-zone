@@ -39,7 +39,7 @@ const Login = () => {
       <div className="login-card">
         <div className="login-header">
           <h1>Welcome back</h1>
-          <p>Please enter your email and pasword</p>
+          <p>Please enter your email and pasword for login</p>
         </div>
         <form className="login-form" onSubmit={hanldeSubmit}>
           <div className="form-group">
