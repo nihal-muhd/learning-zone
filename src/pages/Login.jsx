@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const VALID_EMAIL = "test@gmail.com";
 const VALID_PASSWORD = "123";
+const VALID_NAME = "Nihal";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -19,6 +20,10 @@ const Login = () => {
     if (!validUser) return;
 
     localStorage.setItem("token", "fakeToken");
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ name: VALID_NAME, email: VALID_EMAIL }),
+    );
     navigate("/dashboard", { replace: true });
   };
   const handleChange = (event) => {
