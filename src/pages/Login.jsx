@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 const VALID_EMAIL = "test@gmail.com";
 const VALID_PASSWORD = "123";
@@ -34,29 +35,36 @@ const Login = () => {
     }));
   };
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={hanldeSubmit}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            name="email"
-          />
+    <div className="login-page">
+      <div className="login-card">
+        <div className="login-header">
+          <h1>Welcome back</h1>
+          <p>Please enter your email and pasword</p>
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            value={formData.password}
-            onChange={handleChange}
-            name="password"
-          />
-        </div>
-        <button>Login</button>
-      </form>
+        <form className="login-form" onSubmit={hanldeSubmit}>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              name="email"
+              className="form-input"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              value={formData.password}
+              onChange={handleChange}
+              name="password"
+              className="form-input"
+            />
+          </div>
+          <button>Login</button>
+        </form>
+      </div>
     </div>
   );
 };
