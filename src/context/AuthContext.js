@@ -6,9 +6,16 @@ export const AuthProvider = ({ children }) => {
     const savedUser = localStorage.getItem('user')
     const [user, setUser] = useState(savedUser ? JSON.parse(savedUser) : null)
 
-    const value = {
-        user
+    const logout = () => {
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
     }
+
+    const value = {
+        user,
+        logout
+    }
+
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
