@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
-const VALID_EMAIL = "test@gmail.com";
+const VALID_EMAIL = "nihalmm7025@gmail.com";
 const VALID_PASSWORD = "123";
 const VALID_NAME = "Nihal";
 
