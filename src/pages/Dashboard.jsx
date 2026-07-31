@@ -11,10 +11,10 @@ const Dashboard = () => {
   };
   return (
     <div>
-      <div>
+      {/* <div>
         Welcome, <h1>{user.name}</h1>
       </div>
-      <button onClick={hanldleLogout}>Logout</button>
+      <button onClick={hanldleLogout}>Logout</button> */}
     </div>
   );
 };

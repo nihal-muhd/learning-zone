@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import { ProtectedRoute } from './routes/ProtectedRoute';
 import Dashboard from './pages/Dashboard';
 import { PublicRoute } from './routes/PublicRoute';
+import DashboardLayout from './Layout/DashboardLayout';
 
 function App() {
   return (
@@ -14,9 +15,11 @@ function App() {
 
       </Route>
       <Route element={<ProtectedRoute />}>
+        <Route element={<DashboardLayout />}>
 
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/' element={<Dashboard />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/' element={<Dashboard />} />
+        </Route>
       </Route>
     </Routes>
   )
