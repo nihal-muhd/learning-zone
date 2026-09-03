@@ -1,7 +1,0 @@
-.dashboard-layout {
-  height: 100dvh;
-}
-.dash-sublayout {
-  height: calc(100% - 50px);
-  display: flex;
-}
