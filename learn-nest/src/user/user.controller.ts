@@ -18,7 +18,7 @@ export class UserController {
   }
   @Get(':id')
   getUserById(@Param('id') id: string) {
-    return { id };
+    this.userService.findUserById(parseInt(id));
   }
   @Post()
   createUser(@Body() createUserDto: CreateUserDto) {

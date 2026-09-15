@@ -7,4 +7,8 @@ export declare class UserService {
         id: number;
         name: string;
     }[];
+    findUserById(id: number): {
+        id: number;
+        name: string;
+    };
 }

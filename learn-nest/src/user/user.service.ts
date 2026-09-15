@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { LoggerService } from './user.logger.js';
 
 @Injectable()
@@ -12,5 +12,14 @@ export class UserService {
   findAll() {
     this.logger.log('Finding all user');
     return this.users;
+  }
+  findUserById(id: number) {
+    const user = this.users.find((user) => user.id === id);
+    if (!user) {
+      //NotFoundException will handle the status code
+      throw new NotFoundException('User not found');
+    }
+
+    return user;
   }
 }

@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { LoggerService } from './user.logger.js';
 let UserService = class UserService {
     logger;
@@ -21,6 +21,13 @@ let UserService = class UserService {
     findAll() {
         this.logger.log('Finding all user');
         return this.users;
+    }
+    findUserById(id) {
+        const user = this.users.find((user) => user.id === id);
+        if (!user) {
+            throw new NotFoundException('User not found');
+        }
+        return user;
     }
 };
 UserService = __decorate([

@@ -8,9 +8,7 @@ export declare class UserController {
         id: number;
         name: string;
     }[];
-    getUserById(id: string): {
-        id: string;
-    };
+    getUserById(id: string): void;
     createUser(createUserDto: CreateUserDto): {
         message: string;
     };

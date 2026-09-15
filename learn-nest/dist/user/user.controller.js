@@ -23,7 +23,7 @@ let UserController = class UserController {
         return this.userService.findAll();
     }
     getUserById(id) {
-        return { id };
+        this.userService.findUserById(parseInt(id));
     }
     createUser(createUserDto) {
         return { message: 'User created successfully' };
