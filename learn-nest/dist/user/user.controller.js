@@ -13,9 +13,14 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 import { Body, Controller, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto.js';
 import { UpdateUserDto } from './dto/update-user.dto.js';
+import { UserService } from './user.service.js';
 let UserController = class UserController {
+    userService;
+    constructor(userService) {
+        this.userService = userService;
+    }
     getUsers(name, role) {
-        return { name, role };
+        return this.userService.findAll();
     }
     getUserById(id) {
         return { id };
@@ -58,7 +63,8 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "updateUser", null);
 UserController = __decorate([
-    Controller('user')
+    Controller('user'),
+    __metadata("design:paramtypes", [UserService])
 ], UserController);
 export { UserController };
 //# sourceMappingURL=user.controller.js.map

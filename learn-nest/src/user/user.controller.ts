@@ -1,13 +1,20 @@
 import { Body, Controller, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto.js';
 import { UpdateUserDto } from './dto/update-user.dto.js';
+import { UserService } from './user.service.js';
 
 @Controller('user')
 export class UserController {
+  //Below line means: "Nest, this controller needs a UsersService. Please give me one."
+  constructor(private readonly userService: UserService) {}
+
   // GET /user
   @Get()
   getUsers(@Query('name') name: string, @Query('role') role: string) {
-    return { name, role };
+    //we are not creating const usersService = new UsersService();
+    //Instead, Nest creates the UsersService instance and gives it to the controller automatically.
+    //That is Dependency Injection.
+    return this.userService.findAll();
   }
   @Get(':id')
   getUserById(@Param('id') id: string) {

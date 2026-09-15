@@ -4,17 +4,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-import { Module } from '@nestjs/common';
-import { UserController } from './user.controller.js';
-import { UserService } from './user.service.js';
-import { LoggerService } from './user.logger.js';
-let UserModule = class UserModule {
+import { Injectable } from '@nestjs/common';
+let LoggerService = class LoggerService {
+    log(message) {
+        console.log('[LOG]', message);
+    }
 };
-UserModule = __decorate([
-    Module({
-        controllers: [UserController],
-        providers: [UserService, LoggerService],
-    })
-], UserModule);
-export { UserModule };
-//# sourceMappingURL=user.module.js.map
+LoggerService = __decorate([
+    Injectable()
+], LoggerService);
+export { LoggerService };
+//# sourceMappingURL=user.logger.js.map
